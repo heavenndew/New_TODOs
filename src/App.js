@@ -1,8 +1,8 @@
-import { TodoCounter } from './components/TodoCounter';
-import { TodoSearch } from './components/TodoSearch.js';
-import { TodoList } from './components/TodoList';
-import { TodoItem } from './components/TodoItem';
-import {CreateTodoButton} from './components/CreateTodoButton';
+import { TodoCounter } from './components/todoCounter/TodoCounter.js';
+import { TodoSearch } from './components/todoSearch/TodoSearch.js';
+import { TodoList } from './components/todoList/TodoList.js';
+import { TodoItem } from './components/todoItem/TodoItem.js';
+import {CreateTodoButton} from './components/createTodoButton/CreateTodoButton';
 
 import './App.css';
 
@@ -15,9 +15,9 @@ function App() {
 
 
       <TodoList>
-        <TodoItem />
-        <TodoItem />
-        <TodoItem />
+        <TodoItem completed={true} text="Todo 1"/>
+        <TodoItem completed={false} text="Todo 2"/>
+        <TodoItem completed={false} text="Todo 3"/>
       </TodoList>
 
       <CreateTodoButton />
