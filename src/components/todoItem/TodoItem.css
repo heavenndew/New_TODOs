@@ -1,5 +1,5 @@
-.Todoitem {
-    background-color: #FAFAFA;
+.TodoItem {
+    background-color: #FAFAFA;  
     position: relative;
     display: flex;
     justify-content: center;
@@ -8,9 +8,9 @@
     box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.15);
 }
 
-.Todoitem-p {
+.TodoItem-p {
     margin: 24px 0 24px 24px;
-    width: calc(100% - 120px);
+    /* width: calc(100% - 120px); */
     font-size: 18px;
     line-height: 24px;
     font-weight: 400;
@@ -18,6 +18,17 @@
 
 .TodoItem-p--complete {
     text-decoration: line-through;
+}
+
+.Icon {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    height: 48px;
+    width: 48px;
+    font-weight: bold;
 }
 
 .Icon-check {

@@ -10,7 +10,7 @@ function TodoItem({ completed, text }) {
         <p className={`TodoItem-p ${completed && 'TodoItem-p--complete'}`}>
           {text}
         </p>
-        <p>Todo Item</p>
+        
         <span className="Icon Icon-delete">
           X
         </span>
