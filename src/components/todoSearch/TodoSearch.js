@@ -5,6 +5,11 @@ function TodoSearch() {
         <input 
         className="TodoSearch" 
         placeholder="Cortar cebolla" 
+        onChange={(event) => {
+            console.log('Escribiste en el Todo search')
+            console.log(event)
+            console.log(event.target.value)
+        }}  
         />
     );
 }
