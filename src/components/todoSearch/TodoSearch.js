@@ -1,17 +1,28 @@
-import './TodoSearch.css';
+import React from "react";
+import "./TodoSearch.css";
 
 function TodoSearch() {
-    return (
-        <input 
-        className="TodoSearch" 
-        placeholder="Cortar cebolla" 
-        onChange={(event) => {
-            console.log('Escribiste en el Todo search')
-            console.log(event)
-            console.log(event.target.value)
-        }}  
-        />
-    );
+  const [searchValue, setSearchValue] = React.useState("hola");
+
+  const handleChange = (event) => {
+    console.log(event.target.value);
+    setSearchValue(event.target.value);
+  };
+
+
+
+  return (
+    <div>
+      <input
+        value={searchValue}
+        className="TodoSearch"
+        placeholder="buscar tareas..."
+        onChange={handleChange}
+      />
+
+      <p>{searchValue}</p>
+    </div>
+  );
 }
 
-export { TodoSearch   };
+export { TodoSearch };
