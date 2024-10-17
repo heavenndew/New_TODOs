@@ -2,6 +2,7 @@
 import "./TodoSearch.css";
 
 function TodoSearch(
+  //recibo dos props searchValue (string) y handleChange (funcion)
   {searchValue,
   handleChange}
 ) {

@@ -1,14 +1,27 @@
 import React, { useState } from "react";
-import { TodoCounter } from './components/todoCounter/TodoCounter.js';
-import { TodoSearch } from './components/todoSearch/TodoSearch.js';
-import { TodoList } from './components/todoList/TodoList.js';
-import { TodoItem } from './components/todoItem/TodoItem.js';
-import { CreateTodoButton } from './components/createTodoButton/CreateTodoButton';
+import { TodoCounter } from "./components/todoCounter/TodoCounter.js";
+import { TodoSearch } from "./components/todoSearch/TodoSearch.js";
+import { TodoList } from "./components/todoList/TodoList.js";
+import { TodoItem } from "./components/todoItem/TodoItem.js";
+import { CreateTodoButton } from "./components/createTodoButton/CreateTodoButton";
 
-import './App.css';
+import "./App.css";
 
 function App() {
+  const [todos, setTodos] = useState([
+    {
+      text: "Cortar cebolla",
+      completed: false,
+    },
+    {
+      text: "Tomar el sol",
+      completed: true,
+    },
+  ]);
   const [searchValue, setSearchValue] = useState("");
+
+  // const completedTodos = todos.filter(todo => todo.completed).length;
+  const totalTodos = 0;
 
   const handleChange = (event) => {
     console.log(event.target.value);
@@ -17,28 +30,21 @@ function App() {
 
   return (
     <>
-      <TodoCounter completed={18} total={23} />
+      {/* <TodoCounter completed={completedTodos} total={23} /> */}
       <TodoSearch
-        searchValue={searchValue} handleChange={handleChange}
-        setSearchValue={setSearchValue} />
+        searchValue={searchValue}
+        handleChange={handleChange}
+        setSearchValue={setSearchValue}
+      />
       <TodoList>
-        <TodoItem completed={true} text="Todo 1" />
-        <TodoItem completed={false} text="Todo 2" />
-        <TodoItem completed={false} text="Todo 3" />
+        {todos?.map((todo, index) => (
+          <TodoItem key={index} text={todo.text} completed={todo.completed} />
+        ))}
       </TodoList>
 
       <CreateTodoButton />
-
-
-
-
-
-
-
     </>
   );
 }
-
-
 
 export default App;
