@@ -10,18 +10,33 @@ import "./App.css";
 function App() {
   const [todos, setTodos] = useState([
     {
-      text: "Cortar cebolla",
+      text: "Tomar notas",
       completed: false,
     },
     {
       text: "Tomar el sol",
       completed: true,
     },
+    {
+      text: "Ver llover",
+      completed: true,
+    },
+    {
+      text: "Tomar café",
+      completed: true,
+    },
   ]);
   const [searchValue, setSearchValue] = useState("");
 
-  // const completedTodos = todos.filter(todo => todo.completed).length;
-  const totalTodos = 0;
+  const completedTodos = todos.filter((todo) => todo.completed).length;
+  const totalTodos = todos.length;
+
+  const searchedTodos = todos.filter((todo) => {
+    const todoText = todo.text.toLowerCase();
+    const searchText = searchValue.toLowerCase();
+    
+    return todoText.includes(searchText);
+  });
 
   const handleChange = (event) => {
     console.log(event.target.value);
@@ -30,14 +45,15 @@ function App() {
 
   return (
     <>
-      {/* <TodoCounter completed={completedTodos} total={23} /> */}
+      <TodoCounter completed={completedTodos} total={totalTodos} />
+
       <TodoSearch
         searchValue={searchValue}
         handleChange={handleChange}
         setSearchValue={setSearchValue}
       />
       <TodoList>
-        {todos?.map((todo, index) => (
+        {searchedTodos.map((todo, index) => (
           <TodoItem key={index} text={todo.text} completed={todo.completed} />
         ))}
       </TodoList>
