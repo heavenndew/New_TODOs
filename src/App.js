@@ -38,6 +38,20 @@ function App() {
     return todoText.includes(searchText);
   });
 
+const completeTodo = (text) => {
+  const todoIndex = todos.findIndex((todo) => todo.text === text);
+  const newTodos = [...todos];
+  newTodos[todoIndex].completed = true;
+  setTodos(newTodos);
+}
+
+const deleteTodo = (text) => {
+  const todoIndex = todos.findIndex((todo) => todo.text === text);
+  const newTodos = [...todos];
+  newTodos.splice(todoIndex, 1);
+  setTodos(newTodos);
+}
+
   const handleChange = (event) => {
     console.log(event.target.value);
     setSearchValue(event.target.value);
@@ -54,7 +68,13 @@ function App() {
       />
       <TodoList>
         {searchedTodos.map((todo, index) => (
-          <TodoItem key={index} text={todo.text} completed={todo.completed} />
+          <TodoItem 
+            key={index} 
+            text={todo.text} 
+            completed={todo.completed} 
+            onComplete={() => completeTodo(todo.text)}
+            onDelete={() => deleteTodo(todo.text)} 
+          />
         ))}
       </TodoList>
 
