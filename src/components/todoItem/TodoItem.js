@@ -3,9 +3,9 @@ import './TodoItem.css';
 function TodoItem({ completed, text, onComplete, onDelete }) {
   console.log(completed, text, "props");
     return (
-      <li className="TodoItem">
+      <li className={`TodoItem ${completed && 'TodoItem--active'}`}>
         <span 
-          className={`Icon Icon-check ${completed && 'Icon-check--active'}`}
+          className={`Icon Icon-check ${completed && 'Icon-check--active '}`}
           onClick={onComplete}
         >
           <i className="fa-sharp-duotone fa-solid fa-circle-check"></i>

@@ -1,12 +1,9 @@
 import "./CreateTodoButton.css";
+import { newTodo } from "./createNewTodo/NewTodo.js";
 
-function CreateTodoButton() {
+function CreateTodoButton({handleClick}) {
   //manejar evento de click
-  const handleClick = (event) => {
-    console.log("click");
-    console.log(event);
-    console.log(event.target);
-  };
+  
 
   return (
     <button className="CreateTodoButton" onClick={handleClick}>

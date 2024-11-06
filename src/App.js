@@ -31,9 +31,17 @@ function App() {
   const completedTodos = todos.filter((todo) => todo.completed).length;
   const totalTodos = todos.length;
 
+  const addTodo = (text) => {
+    const newTodoText = searchValue;
+    setTodos([...todos, { text: newTodoText, completed: false }]);
+    setSearchValue("");
+  };
+
   const searchedTodos = todos.filter((todo) => {
     const todoText = todo.text.toLowerCase();
     const searchText = searchValue.toLowerCase();
+
+  
     
     return todoText.includes(searchText);
   });
@@ -78,7 +86,8 @@ const deleteTodo = (text) => {
         ))}
       </TodoList>
 
-      <CreateTodoButton />
+      <CreateTodoButton
+      handleClick={addTodo} />
     </>
   );
 }
