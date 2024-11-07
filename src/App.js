@@ -8,6 +8,8 @@ import { CreateTodoButton } from "./components/createTodoButton/CreateTodoButton
 import "./App.css";
 
 function App() {
+
+  
   const [todos, setTodos] = useState([
     {
       text: "Tomar notas",
@@ -64,6 +66,9 @@ const deleteTodo = (text) => {
     console.log(event.target.value);
     setSearchValue(event.target.value);
   };
+
+  debugger
+
 
   return (
     <>

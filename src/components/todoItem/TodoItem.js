@@ -1,7 +1,7 @@
 import './TodoItem.css';
 
 function TodoItem({ completed, text, onComplete, onDelete }) {
-  console.log(completed, text, "props");
+
     return (
       <li className={`TodoItem ${completed && 'TodoItem--active'}`}>
         <span 
